@@ -3,6 +3,7 @@ package info.ditrapani
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Vertx
 import io.vertx.ext.web.Router
+import io.vertx.ext.web.handler.StaticHandler
 
 class Server : AbstractVerticle() {
     override fun start() {
@@ -12,6 +13,7 @@ class Server : AbstractVerticle() {
             response.putHeader("content-type", "text/plain")
             response.end("Hello World from Vert.x-Web!")
         })
+        router.route("/*").handler(StaticHandler.create())
 
         vertx.createHttpServer().requestHandler(router).listen(44770)
     }

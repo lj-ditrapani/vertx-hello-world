@@ -22,6 +22,7 @@ Todo
     - /hello
         - gets count; +1, store
         - broadcasts new count to all websockets
+- coroutine integration
 
 
 Develop
@@ -60,3 +61,7 @@ Package, install and run artifact
 
     ./gradlew assembleDist installDist && \
         ./build/install/vertx-kotlin-hello-world/bin/vertx-kotlin-hello-world
+
+Lint, test, run
+
+    ./gradlew ktlintFormat test run

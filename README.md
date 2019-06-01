@@ -1,9 +1,13 @@
-Hello world in Vert.x + kotlin + kotlin/javascript + docker
-===========================================================
+Hello world in Vert.x + kotlin
+==============================
+
+WIP
 
 Dockerized hello world
 using
 Vert.x + kotlin + kotlin/javascript.
+
+Status: /hello endpoint, static page and WebSocket server running.
 
 Todo
 ====

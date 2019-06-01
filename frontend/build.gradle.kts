@@ -10,11 +10,20 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-js:1.3.31")
+    implementation(kotlin("stdlib-js:1.3.31"))
 }
 
 detekt {
     toolVersion = "1.0.0-RC14"
     input = files("src/main/kotlin")
     filters = ".*/resources/.*,.*/build/.*"
+}
+
+tasks {
+    compileKotlin2Js {
+        kotlinOptions {
+            outputFile = "$projectDir/web/code.js"
+            sourceMap = true
+        }
+    }
 }

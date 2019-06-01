@@ -30,10 +30,14 @@ task assembleWeb(type: Sync) {
             includeEmptyDirs = false
             include { fileTreeElement ->
                 def path = fileTreeElement.path
-                path.endsWith(".js") && (path.startsWith("META-INF/resources/") || 
-                    !path.startsWith("META-INF/"))
+		(path.endsWith(".js") || path.endsWith(".js.map")) &&
+                (path.startsWith("META-INF/resources/") || !path.startsWith("META-INF/"))
             }
         })
+    }
+    from compileKotlin2Js{
+	kotlinOptions.sourceMap = true
+	kotlinOptions.sourceMapEmbedSources = "always"
     }
     from compileKotlin2Js.destinationDir
     into "${projectDir}/../src/main/resources/webroot/js"

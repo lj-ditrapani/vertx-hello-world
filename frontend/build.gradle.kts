@@ -1,17 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
-
-group "info.ditrapani"
-version "1.0-SNAPSHOT"
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31")
-    }
-}
-
 plugins {
     id("kotlin2js").version("1.3.31")
     jacoco

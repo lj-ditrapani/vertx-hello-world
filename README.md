@@ -27,6 +27,8 @@ Todo
         - gets count; +1, store
         - broadcasts new count to all websockets
 - coroutine integration
+- rewrite frontend build.gradle in kts.
+  See: <https://kotlinlang.org/docs/reference/using-gradle.html>
 
 
 Develop

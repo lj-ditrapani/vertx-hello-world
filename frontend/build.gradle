@@ -36,7 +36,7 @@ task assembleWeb(type: Sync) {
         })
     }
     from compileKotlin2Js.destinationDir
-    into "${projectDir}/web"
+    into "${projectDir}/../src/main/resources/webroot/js"
 
     dependsOn classes
 }

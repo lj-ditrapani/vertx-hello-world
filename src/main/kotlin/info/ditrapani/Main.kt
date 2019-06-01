@@ -9,13 +9,18 @@ class Server : AbstractVerticle() {
     override fun start() {
         val router = Router.router(vertx)
         router.route("/hello").handler({ routingContext ->
-            var response = routingContext.response()
+            val response = routingContext.response()
             response.putHeader("content-type", "text/plain")
             response.end("Hello World from Vert.x-Web!")
         })
         router.route("/*").handler(StaticHandler.create())
 
-        vertx.createHttpServer().requestHandler(router).listen(44770)
+        val server = vertx.createHttpServer()
+    server.websocketHandler({ websocket ->
+        println("Connected!")
+    })
+    server.requestHandler(router)
+    server.listen(44770)
     }
 }
 

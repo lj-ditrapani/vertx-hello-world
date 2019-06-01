@@ -5,6 +5,24 @@ Dockerized hello world
 using
 Vert.x + kotlin + kotlin/javascript.
 
+Todo
+====
+
+- backend
+    - /hello route
+    - static serving html, css, js
+    - websocketServer
+- frontend: kotlin/javascript
+    - hello button (post /hello)
+    - count box shows latest value from websocket
+- store:
+    - mongodb
+    - single count document
+    - bootup sets count to 0
+    - /hello
+        - gets count; +1, store
+        - broadcasts new count to all websockets
+
 
 Develop
 =====================

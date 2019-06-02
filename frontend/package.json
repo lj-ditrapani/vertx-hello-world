@@ -1,0 +1,40 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "description": "Vert.x hello world frontend",
+  "scripts": {
+    "test": "nyc -e .ts mocha -r ts-node/register \"test/**/*_test.ts\"",
+    "test1": "mocha -r ts-node/register",
+    "fmt": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"*.json\"",
+    "tlint": "tslint --fix -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "npm run tlint && npm run fmt",
+    "tsc": "tsc",
+    "all": "npm run lint && tsc && npm test"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "require": [
+      "ts-node/register"
+    ],
+    "exclude": [
+      "src/output.ts",
+      "**/*.d.ts",
+      "test/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lj-ditrapani/vertx-hello-world.git"
+  },
+  "author": "Jonathan Di Trapani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lj-ditrapani/vertx-hello-world/issues"
+  },
+  "homepage": "https://github.com/lj-ditrapani/vertx-hello-world#readme"
+}

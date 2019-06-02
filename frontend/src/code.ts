@@ -15,6 +15,6 @@ $(document).ready(() => {
   })
   ws.addEventListener('message', ev => {
     console.log(`RECV: ${ev.data}`)
-    counter.append(ev.data)
+    counter.html(ev.data)
   })
 })

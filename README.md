@@ -14,7 +14,8 @@ Dockerized hello world using Vert.x + kotlin + typescript.
     - Build: browserify + tsify
     - hello button (post /hello)
     - count box shows latest global hello count from websocket
-- pipeline & deployment: multi-stage Dockerfile
+- pipeline & deployment:
+  [multi-stage Dockerfile](https://docs.docker.com/develop/develop-images/multistage-build/)
     - all formatting, linting, testing and building happen in intermediate
       images, final artifacts are copied into the final release image.
 

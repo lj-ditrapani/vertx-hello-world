@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "module": "ES2015",
-    "target": "ES2015",
+    "module": "commonjs",
+    "target": "es5",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
@@ -10,7 +9,18 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./dist",
-    "newLine": "lf"
+    "newLine": "lf",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.core",
+      "es2015.promise",
+      "es2015.collection",
+      "es2016.array.include",
+      "es2017.string",
+      "es2017.object",
+      "es2018.promise"
+    ]
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.0.1",
   "description": "Vert.x hello world frontend",
+  "browser": "code.ts",
   "scripts": {
     "test": "nyc -e .ts mocha -r ts-node/register \"test/**/*_test.ts\"",
     "test1": "mocha -r ts-node/register",
@@ -9,7 +10,8 @@
     "tlint": "tslint --fix -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "lint": "npm run tlint && npm run fmt",
     "tsc": "tsc",
-    "all": "npm run lint && tsc && npm test"
+    "build": "browserify src/code.ts -p [ tsify ] | uglifyjs --compress --mangle > ../src/main/resources/webroot/js/code.js",
+    "all": "npm run lint && tsc && npm test && npm run build"
   },
   "nyc": {
     "check-coverage": true,
@@ -38,17 +40,24 @@
   },
   "homepage": "https://github.com/lj-ditrapani/vertx-hello-world#readme",
   "devDependencies": {
+    "@types/jquery": "^3.3.29",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.0.4",
     "@types/sinon": "^7.0.12",
+    "browserify": "^16.2.3",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "prettier": "^1.17.1",
     "sinon": "^7.3.2",
     "source-map-support": "^0.5.12",
     "ts-node": "^8.2.0",
+    "tsify": "^4.0.1",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.1",
+    "uglify-js": "^3.6.0"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }

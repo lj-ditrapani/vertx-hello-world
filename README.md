@@ -96,3 +96,4 @@ Todo
 - docker: browserify + tsify can't seem to get it to work in docker...
     - `Error: tsify: no compiled file for /src/code.ts`
     - npm run all-pipeline doesn't fail when browserify fails when piped to uglify
+- recover from lost/broken websockets

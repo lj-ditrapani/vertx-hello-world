@@ -24,8 +24,8 @@ class Server : AbstractVerticle() {
 
         val server = vertx.createHttpServer()
         server.websocketHandler({ webSocket ->
-            println("New web socket connection.  Total count: ${webSockets.size}.")
             webSockets.add(webSocket)
+            println("New web socket connection.  Total count: ${webSockets.size}.")
         })
         server.requestHandler(router)
         server.listen(44770)

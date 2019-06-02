@@ -14,7 +14,7 @@
     "lint-check": "npm run tlint-check && npm run fmt-check",
     "tsc": "tsc",
     "build": "browserify src/code.ts -p [ tsify ] | uglifyjs --compress --mangle > ../src/main/resources/webroot/js/code.js",
-    "build-pipeline": "browserify src/code.ts -p [ tsify ] | uglifyjs --compress --mangle > code.js",
+    "build-pipeline": "browserify dist/code.js > code.js",
     "all-pipeline": "npm run lint-check && tsc && npm test && npm run build-pipeline",
     "all": "npm run lint && tsc && npm test && npm run build"
   },

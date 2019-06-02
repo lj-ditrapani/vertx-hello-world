@@ -1,9 +1,7 @@
 Hello world in Vert.x + kotlin + typescript
 ===========================================
 
-Hello world
-using
-Vert.x + kotlin + typescript.
+Dockerized hello world using Vert.x + kotlin + typescript.
 
 
 - backend
@@ -12,25 +10,31 @@ Vert.x + kotlin + typescript.
     - serves up html and javascript
     - websocketServer
 - frontend
-    - jquery + typescript
+    - Runtime: Uses typescript and jquery
+    - Build: browserify + tsify
     - hello button (post /hello)
     - count box shows latest global hello count from websocket
+- pipeline & deployment: multi-stage Dockerfile
+    - all formatting, linting, testing and building happen in intermediate
+      images, final artifacts are copied into the final release image.
+
+To build and run you only need [docker](https://www.docker.com/) installed.
+To develop the backend, you need a Java JDK 8.
+I recommend installing via [sdkman](https://sdkman.io/).
+To develop the frontend, you need [node](https://nodejs.org/) 10.16.0.
+I recommend installing via [nvm](https://github.com/nvm-sh/nvm).
 
 
-Todo
-====
+Build it!
+=========
 
-- store:
-    - mongodb
-    - single count document
-    - bootup sets count to 0
-    - /hello
-        - gets count; +1, store
-        - broadcasts new count to all websockets
-- dockerize (multistage docker file)
-- coroutine integration
-- rewrite frontend build.gradle in kts.
-  See: <https://kotlinlang.org/docs/reference/using-gradle.html>
+    sh build.sh
+
+
+Run it!
+=======
+
+    sh docker-run.sh
 
 
 Develop
@@ -73,3 +77,21 @@ Package, install and run artifact
 Lint, test, run
 
     ./gradlew ktlintFormat test run
+
+
+Todo
+====
+
+- store:
+    - mongodb
+    - single count document
+    - bootup sets count to 0
+    - /hello
+        - gets count; +1, store
+        - broadcasts new count to all websockets
+- coroutine integration
+- rewrite frontend build.gradle in kts.
+  See: <https://kotlinlang.org/docs/reference/using-gradle.html>
+- docker: browserify + tsify can't seem to get it to work in docker...
+    - `Error: tsify: no compiled file for /src/code.ts`
+    - npm run all-pipeline doesn't fail when browserify fails when piped to uglify

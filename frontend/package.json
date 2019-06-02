@@ -7,10 +7,15 @@
     "test": "nyc -e .ts mocha -r ts-node/register \"test/**/*_test.ts\"",
     "test1": "mocha -r ts-node/register",
     "fmt": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"*.json\"",
+    "fmt-check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\" \"*.json\"",
     "tlint": "tslint --fix -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
+    "tlint-check": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "lint": "npm run tlint && npm run fmt",
+    "lint-check": "npm run tlint-check && npm run fmt-check",
     "tsc": "tsc",
     "build": "browserify src/code.ts -p [ tsify ] | uglifyjs --compress --mangle > ../src/main/resources/webroot/js/code.js",
+    "build-pipeline": "browserify src/code.ts -p [ tsify ] | uglifyjs --compress --mangle > code.js",
+    "all-pipeline": "npm run lint-check && tsc && npm test && npm run build-pipeline",
     "all": "npm run lint && tsc && npm test && npm run build"
   },
   "nyc": {

@@ -1,0 +1,11 @@
+.git
+*Dockerfile*
+*/node_modules
+*/dist
+*/doc
+*/docs
+*/.nyc_output
+/build
+/gradle
+README.md
+frontend/README.md

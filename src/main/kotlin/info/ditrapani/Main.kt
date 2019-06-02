@@ -8,23 +8,23 @@ import io.vertx.core.http.ServerWebSocket
 
 class Server : AbstractVerticle() {
     val webSockets = mutableListOf<ServerWebSocket>()
+    var helloCount: Int = 0
 
     override fun start() {
         val router = Router.router(vertx)
         router.route("/hello").handler({ routingContext ->
+            helloCount += 1
             val response = routingContext.response()
             response.putHeader("content-type", "text/plain")
-            response.end("Hello World from Vert.x-Web!")
-            println("hello request")
-            println(webSockets.size)
-            webSockets.forEach({ ws -> ws.writeTextMessage("Update!") })
+            response.end("Hello from Vert.x!  Count is $helloCount.")
+            println("Received hello request.  Count: $helloCount")
+            webSockets.forEach({ ws -> ws.writeTextMessage("$helloCount") })
         })
         router.route("/*").handler(StaticHandler.create())
 
         val server = vertx.createHttpServer()
     server.websocketHandler({ webSocket ->
-        println("Connected!")
-        webSocket.writeTextMessage("Welcome over WebSocket")
+        println("New web socket connection.  Total count: ${webSockets.size}.")
         webSockets.add(webSocket)
     })
     server.requestHandler(router)

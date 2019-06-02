@@ -5,9 +5,9 @@ WIP
 
 Dockerized hello world
 using
-Vert.x + kotlin + kotlin/javascript.
+Vert.x + kotlin + typescript.
 
-Status: /hello endpoint, static page and WebSocket server running.
+Status: /hello endpoint, static page and WebSocket server running, frontend skeleton.
 
 Todo
 ====
@@ -16,7 +16,7 @@ Todo
     - /hello route
     - static serving html, css, js
     - websocketServer
-- frontend: kotlin/javascript
+- frontend: typescript
     - hello button (post /hello)
     - count box shows latest value from websocket
 - store:

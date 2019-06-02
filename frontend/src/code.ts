@@ -2,8 +2,8 @@ import * as $ from 'jquery'
 
 $(document).ready(() => {
   console.log('hello world!')
-  const button = $('button')
-  const counter = $('counter')
+  const button = $('#button')
+  const counter = $('#counter')
   console.log(button)
   console.log(counter)
   button.click(() => $.get('/hello'))
@@ -15,5 +15,6 @@ $(document).ready(() => {
   })
   ws.addEventListener('message', ev => {
     console.log(`RECV: ${ev.data}`)
+    counter.append(ev.data)
   })
 })

@@ -1,24 +1,25 @@
-Hello world in Vert.x + kotlin
-==============================
+Hello world in Vert.x + kotlin + typescript
+===========================================
 
-WIP
-
-Dockerized hello world
+Hello world
 using
 Vert.x + kotlin + typescript.
 
-Status: /hello endpoint, static page and WebSocket server running, frontend skeleton.
+
+- backend
+    - vert.x + kotlin
+    - /hello route
+    - serves up html and javascript
+    - websocketServer
+- frontend
+    - jquery + typescript
+    - hello button (post /hello)
+    - count box shows latest global hello count from websocket
+
 
 Todo
 ====
 
-- backend
-    - /hello route
-    - static serving html, css, js
-    - websocketServer
-- frontend: typescript
-    - hello button (post /hello)
-    - count box shows latest value from websocket
 - store:
     - mongodb
     - single count document
@@ -26,6 +27,7 @@ Todo
     - /hello
         - gets count; +1, store
         - broadcasts new count to all websockets
+- dockerize (multistage docker file)
 - coroutine integration
 - rewrite frontend build.gradle in kts.
   See: <https://kotlinlang.org/docs/reference/using-gradle.html>

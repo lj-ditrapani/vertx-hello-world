@@ -2,9 +2,9 @@ package info.ditrapani
 
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Vertx
+import io.vertx.core.http.ServerWebSocket
 import io.vertx.ext.web.Router
 import io.vertx.ext.web.handler.StaticHandler
-import io.vertx.core.http.ServerWebSocket
 
 class Server : AbstractVerticle() {
     val webSockets = mutableListOf<ServerWebSocket>()

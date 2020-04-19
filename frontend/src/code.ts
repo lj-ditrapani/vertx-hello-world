@@ -7,10 +7,10 @@ $(document).ready(() => {
   button.click(() => $.get('/hello'))
   const location = document.location
   const ws = new WebSocket(`ws://${location.hostname}:${location.port}`)
-  ws.addEventListener('open', _ => {
+  ws.addEventListener('open', (_) => {
     console.log('Connected')
   })
-  ws.addEventListener('message', ev => {
+  ws.addEventListener('message', (ev) => {
     console.log(`RECV: ${ev.data}`)
     counter.html(ev.data)
   })

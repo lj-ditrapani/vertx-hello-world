@@ -50,7 +50,7 @@
     "@types/node": "^13.13.0",
     "@types/sinon": "^9.0.0",
     "browserify": "^16.5.1",
-    "mocha": "^7.1.1",
+    "mocha": "^10.2.0",
     "nyc": "^15.0.1",
     "prettier": "^2.0.4",
     "sinon": "^9.0.2",
